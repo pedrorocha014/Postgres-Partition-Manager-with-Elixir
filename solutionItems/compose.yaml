@@ -1,0 +1,23 @@
+services: 
+  partitionmanagerdb:
+    image: postgres:17.6-alpine3.22
+    container_name: partition-manager-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5435:5432"
+    volumes:
+      - partition_manager_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - partition-manager-network
+
+volumes:
+  partition_manager_data:
+
+networks:
+  partition-manager-network:
+    driver: bridge
+  
