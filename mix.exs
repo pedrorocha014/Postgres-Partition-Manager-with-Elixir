@@ -21,7 +21,8 @@ defmodule PostgresPartitionManager.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.11"},
-      {:postgrex, "~> 0.18"}
+      {:postgrex, "~> 0.18"},
+      {:decimal, "~> 2.1"}
     ]
   end
 end

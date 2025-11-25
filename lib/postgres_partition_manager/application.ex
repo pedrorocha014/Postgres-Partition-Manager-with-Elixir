@@ -5,7 +5,8 @@ defmodule PostgresPartitionManager.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      PostgresPartitionManager.Repo
+      PostgresPartitionManager.Repo,
+      PostgresPartitionManager.TransactionGenerator
     ]
 
     opts = [strategy: :one_for_one, name: PostgresPartitionManager.Supervisor]
